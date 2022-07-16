@@ -1,0 +1,52 @@
+{% extends 'master.html' %}
+{% include 'header.html' %}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div>
+            <div class="col-md-12" tex-center><h1> Customers List </h1></div>
+        </div>
+        <div>
+            <table class="table">
+                <thead style="background-color:brown ; color:aliceblue;">
+                    <th> ID </th>
+                    <th> First Name </th>
+                    <th> Last Name </th>
+                    <th> Email </th>
+                    <th> Gender </th>
+                    <th> Occupations </th>
+                    <th> Country </th>
+                    <th> Actions </th>                
+                </thead>
+                <tbody>
+                    {% for customer in customers %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{customer.first_name}}</td>
+                        <td>{{customer.last_name}}</td>
+                        <td>{{customer.email}}</td>
+                        <td>{{customer.gender}}</td>
+                        <td>{{customer.occupations}}</td>
+                        <td>{{customer.country}}</td>
+                        <td>
+                            <span style="font-size: 24px;color: green;">
+                                <a href="/{{customer.id}}/edit">
+                                    <i class="fas fa-edit"></i>
+                                </a>                            
+                            </span>
+                            <span style="font-size: 24px;color: red;">
+                                <a href="/{{customer.id}}/delete">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>                            
+                            </span>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+{% endblock %}

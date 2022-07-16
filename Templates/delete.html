@@ -1,0 +1,15 @@
+{% extends 'master.html' %}
+{% include 'header.html' %}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+<div class="container">
+    <form action=" " method="post">
+        Click yes to confirm
+        <input type="submit" value="YES" class="btn btn-danger"/>
+        <a href="/"> Cancel </a>
+    </form>
+</div>
+
+{% endblock %}

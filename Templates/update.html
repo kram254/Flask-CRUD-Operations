@@ -1,0 +1,113 @@
+{% extends 'master.html' %}
+{% include 'header.html' %}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <form method="post" action="">
+            <table class="table">
+                <tr>
+                    <td> First Name </td>
+                    <td><input type="text" name="first_name" class="forn-control" value="{{customer.firstname}}"/></td>
+                </tr>
+                <tr>
+                    <td> Last Name </td>
+                    <td><input type="text" name="last_name" class="forn-control" value="{{customer.lastname}}"/></td>
+                </tr>
+                <tr>
+                    <td> Email </td>
+                    <td><input type="email" name="email" class="forn-control" value="{{customer.email}}"/></td>
+                </tr>
+                <tr>
+                    <td> Password </td>
+                    <td><input type="password" name="password" class="forn-control" value="{{customer.password}}"/></td>
+                </tr>
+                <tr>
+                    <td> Gender </td>
+                    <td>
+                        Male: <input type="radio" name="gender" value="male" 
+                        {% if customer.gender == 'male'  %}
+                                checked
+                        {% endif %}
+                        />
+                        Female: <input type="radio" name="gender" value="male" 
+                        {% if customer.gender == 'female'  %}
+                                checked
+                        {% endif %}
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td> Occupations </td>
+                    <td>
+                        Chef: <input type="checkbox",name="hobbies" value="chef" 
+                        {% if 'chef' in customer.occupations %}
+                                checked
+                        {% endif %}
+                        />
+                        Accountant: <input type="checkbox" name="hobbies" value="accountant" 
+                        {% if 'accountant' in customer.occupations %}
+                                checked
+                        {% endif %}
+                        />
+                        Developer: <input type="checkbox" name="hobbies" value="developer" 
+                        {% if 'developer' in customer.occupations %}
+                                checked
+                        {% endif %}
+                        />
+                        Actor: <input type="checkbox" name="hobbies" value="actor" 
+                        {% if 'actor' in customer.occupations %}
+                                checked
+                        {% endif %}
+                        />
+                        Doctor: <input type="checkbox" name="hobbies" value="doctor" 
+                        {% if 'doctor' in customer.occupations %}
+                                checked
+                        {% endif %}
+                        />
+
+                    </td>
+                </tr>
+                <tr>
+                    <td> Country </td>
+                    <td>
+                        <select name="country" class="form-control">
+                            <option value="None"> None </option>
+                            <option value="Uganda"
+                            {% if 'uganda' in customer.country %}
+                                selected
+                            {% endif %}
+                            > Uganda </option>
+                            <option value="Tanzania"
+                            {% if 'tanzania' in customer.country %}
+                                selected
+                            {% endif %}
+                            > Tanzania </option>
+                            <option value="Kenya"
+                            {% if 'kenya' in customer.country %}
+                                selected
+                            {% endif %}
+                            > Kenya </option>
+                            <option value="Rwanda"
+                            {% if 'rwanda' in customer.country %}
+                                selected
+                            {% endif %}
+                            > Rwanda </option>
+                            <option value="Burundi"
+                            {% if 'burundi' in customer.country %}
+                                selected
+                            {% endif %}
+                            > Burundi </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" name="submit" value="submit" class="btn btn-warning" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+{% endblock %}
